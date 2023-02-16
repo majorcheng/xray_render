@@ -1,37 +1,37 @@
 {
-  "log": {
-    "loglevel": "warning"
-  },
-  "inbounds": [
-    {
-      "listen": "0.0.0.0",
-      "port": 1234,
-      "protocol": "vmess",
-      "settings": {
-        "clients": [
-          {
-            "alterId": 0,
-            "security": "auto",
-            "id": "69ke79ad-0142-4eb1-ac51-e9dfc153d755",
-            "email": "nrouter@gmail.com"
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "none",
-        "wsSettings": {
-          "connectionReuse": true,
-          "maxEarlyData": 2048,
-          "earlyDataHeaderName": "Sec-WebSocket-Protocol",
-          "path": "/api"
+    "log": {
+        "loglevel": "warning"
+    },
+    "inbounds": [
+        {
+            "listen": "127.0.0.1",
+            "port": 1234,
+            "protocol": "vmess",
+            "settings": {
+                "clients": [
+                {
+                    "alterId": 0,
+                    "security": "auto",
+                    "id": "694e79ad-0142-4eb1-ac51-e9dfc153d755",
+                    "email": "nrouter@gmail.com"
+                }
+                ]
+            },
+            "streamSettings": {
+                "network": "ws",
+                "security": "none",
+                "wsSettings": {
+                    "connectionReuse": true,
+                    "maxEarlyData": 2048,
+                    "earlyDataHeaderName": "Sec-WebSocket-Protocol",
+                    "path": "/api"
+                }
+            }
         }
-      }
-    }
-  ],
-  "outbounds": [
-    {
-      "protocol": "freedom"
-    }
-  ]
+    ],
+    "outbounds": [
+        {
+            "protocol": "freedom"
+        }
+    ]
 }
