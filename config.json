@@ -1,6 +1,6 @@
 {
     "log": {        
-        "loglevel": "warn"
+        "loglevel": "debug"
     },
     "inbounds": [
         {
