@@ -1,0 +1,36 @@
+{
+    "log": {
+        "loglevel": "warning"
+    },
+    "inbounds": [
+        {
+            "listen": "0.0.0.0",
+            "port": 1234,
+            "protocol": "vless",
+            "settings": {
+                "clients": [
+                    {
+                        "id": "921a0a8b-420d-b731-588d-8dc5b2cea381",
+                        "level": 0,
+                        "email": "n1_office@thu.cn",
+                        "flow": "xtls-rprx-vision"
+                    }
+                ],
+				"decryption": "none"
+            },
+            "streamSettings": {
+                "network": "tcp",
+                "security": "none",
+                "tlsSettings": {
+                    "rejectUnknownSni": false,
+                    "minVersion": "1.2"
+                }
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "freedom"
+        }
+    ]
+}
