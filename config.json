@@ -1,37 +1,91 @@
 {
-    "log": {
-        "loglevel": "warning"
+    "log": {        
+        "loglevel": "warn"
     },
     "inbounds": [
         {
-            "listen": "0.0.0.0",
-            "port": 1234,
-            "protocol": "vmess",
+            "port": 8080,
+            "protocol": "vless",
             "settings": {
                 "clients": [
-                {
-                    "alterId": 0,
-                    "security": "auto",
-                    "id": "07bc1369-44af-4223-9f31-5930d41c2377",
-                    "email": "major@thu.cn"
-                }
+                    {
+                        "id": "921a0a8b-420d-b731-588d-8dc5b2cea381",
+                        "flow": "xtls-rprx-direct"
+                    }
+                ],
+                "decryption": "none",
+                "fallbacks": [
+                    {
+                        "dest": 3001
+                    },
+                    {
+                        "path": "/vless",
+                        "dest": 3002
+                    }
                 ]
+            },
+            "streamSettings": {
+                "network": "tcp"
+            }
+        },
+        {
+            "port": 3001,
+            "listen": "127.0.0.1",
+            "protocol": "vless",
+            "settings": {
+                "clients": [
+                    {
+                        "id": "921a0a8b-420d-b731-588d-8dc5b2cea381"
+                    }
+                ],
+                "decryption": "none"
+            },
+            "streamSettings": {
+                "network": "ws",
+                "security": "none"
+            }
+        },
+        {
+            "port": 3002,
+            "listen": "127.0.0.1",
+            "protocol": "vless",
+            "settings": {
+                "clients": [
+                    {
+                        "id": "921a0a8b-420d-b731-588d-8dc5b2cea381",
+                        "level": 0
+                    }
+                ],
+                "decryption": "none"
             },
             "streamSettings": {
                 "network": "ws",
                 "security": "none",
                 "wsSettings": {
-                    "connectionReuse": true,
-                    "maxEarlyData": 2048,
-                    "earlyDataHeaderName": "Sec-WebSocket-Protocol",
-                    "path": "/api"
+                    "path": "/vless"
                 }
+            },
+            "sniffing": {
+                "enabled": true,
+                "destOverride": [
+                    "http",
+                    "tls",
+                    "quic"
+                ],
+                "metadataOnly": false
             }
         }
     ],
     "outbounds": [
         {
-            "protocol": "freedom"
+            "protocol": "freedom",
+            "settings": {}
         }
-    ]
+    ],
+    "dns": {
+        "server": [
+            "8.8.8.8",
+            "8.8.4.4"
+        ]
+    }
 }
