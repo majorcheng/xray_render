@@ -6,24 +6,25 @@
         {
             "listen": "0.0.0.0",
             "port": 1234,
-            "protocol": "vless",
+            "protocol": "vmess",
             "settings": {
                 "clients": [
-                    {
-                        "id": "921a0a8b-420d-b731-588d-8dc5b2cea381",
-                        "level": 0,
-                        "email": "n1_office@thu.cn",
-                        "flow": "xtls-rprx-vision"
-                    }
-                ],
-				"decryption": "none"
+                {
+                    "alterId": 0,
+                    "security": "auto",
+                    "id": "07bc1369-44af-4223-9f31-5930d41c2377",
+                    "email": "major@thu.cn"
+                }
+                ]
             },
             "streamSettings": {
-                "network": "tcp",
+                "network": "ws",
                 "security": "none",
-                "tlsSettings": {
-                    "rejectUnknownSni": false,
-                    "minVersion": "1.2"
+                "wsSettings": {
+                    "connectionReuse": true,
+                    "maxEarlyData": 2048,
+                    "earlyDataHeaderName": "Sec-WebSocket-Protocol",
+                    "path": "/api"
                 }
             }
         }
