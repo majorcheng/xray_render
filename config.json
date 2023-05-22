@@ -10,7 +10,9 @@
                 "clients": [
                     {
                         "id": "921a0a8b-420d-b731-588d-8dc5b2cea381",
-                        "flow": "xtls-rprx-direct"
+                        "level": 0,
+                        "email": "major@thu.cn",
+                        "flow": "xtls-rprx-vision"
                     }
                 ],
                 "decryption": "none",
